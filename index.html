@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Pagi Najwa Cantik 👋❤🤍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* ✅ FONT DIGANTI KE CALIBRI */
+            font-family: 'Calibri', 'Segoe UI', sans-serif;
+            user-select: none;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to bottom, 
+                #87CEEB 0%, #B0E0E6 30%, #98FB98 55%, #90EE90 75%, #3CB371 100%);
+            position: relative;
+        }
+
+        .matahari {
+            position: absolute;
+            top: 40px;
+            right: 70px;
+            width: 110px;
+            height: 110px;
+            background: radial-gradient(#fff9c4, #ffeb3b, #ffc107);
+            border-radius: 50%;
+            box-shadow: 0 0 80px #ffeb3b;
+            animation: bersinar 3s infinite ease-in-out;
+        }
+        @keyframes bersinar {
+            0%,100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .awan {
+            position: absolute;
+            background: white;
+            border-radius: 100px;
+            box-shadow: 0 5px 15px rgba(255,255,255,0.6);
+            animation: melayang 25s infinite linear;
+        }
+        @keyframes melayang {
+            0% { transform: translateX(-250px); }
+            100% { transform: translateX(120vw); }
+        }
+
+        .rumput {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(to top, #2E8B57, #3CB371, #90EE90);
+        }
+        .bunga {
+            position: absolute;
+            font-size: 35px;
+            animation: goyangBunga 4s infinite ease-in-out;
+        }
+        @keyframes goyangBunga {
+            0%,100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .kupu {
+            position: absolute;
+            font-size: 28px;
+            animation: terbangKupu 12s infinite ease-in-out;
+        }
+        @keyframes terbangKupu {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(150px, -80px) rotate(15deg); }
+            50% { transform: translate(300px, 20px) rotate(0deg); }
+            75% { transform: translate(150px, -50px) rotate(-15deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        .wadah-utama {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            text-align: center;
+        }
+        .balon {
+            position: relative;
+            width: 180px;
+            height: 230px;
+            margin: 0 auto 30px;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            background: linear-gradient(145deg, #ff477e, #ff6b9d, #c44569);
+            box-shadow: inset -20px -20px 40px rgba(0,0,0,0.15), 
+                        inset 20px 20px 40px rgba(255,255,255,0.4);
+            animation: melayangBalon 3.5s infinite ease-in-out;
+            transition: all 0.2s;
+        }
+        .balon.kena { transform: scale(0.8) rotate(10deg); opacity: 0.4; }
+        .balon::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0; height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 18px solid #c44569;
+        }
+        .tali-balon {
+            position: absolute;
+            top: 100%; left: 50%;
+            transform: translateX(-50%);
+            width: 4px; height: 200px;
+            background: #555; border-radius: 2px;
+            animation: taliGerak 3s infinite ease-in-out;
+        }
+        @keyframes melayangBalon {
+            0%,100% { transform: translateY(0) rotate(-3deg); }
+            50% { transform: translateY(-20px) rotate(3deg); }
+        }
+        @keyframes taliGerak {
+            0%,100% { transform: translateX(-50%) skewX(-2deg); }
+            50% { transform: translateX(-50%) skewX(2deg); }
+        }
+
+        .paku-terbang {
+            position: absolute;
+            font-size: 40px;
+            z-index: 12;
+            pointer-events: none;
+            transition: all 0.4s ease-in;
+        }
+
+        .tombol-paku {
+            position: relative; margin-top: 280px;
+            padding: 18px 40px; font-size: 1.4rem; font-weight: bold;
+            color: white; background: linear-gradient(180deg, #795548, #5d4037);
+            border: none; border-radius: 12px; cursor: pointer;
+            box-shadow: 0 6px 0 #3e2723, 0 8px 15px rgba(0,0,0,0.3);
+            transition: all 0.1s; z-index: 5;
+        }
+        .tombol-paku:active { transform: translateY(4px); box-shadow: 0 2px 0 #3e2723; }
+        .tombol-paku span { font-size: 1.6rem; margin-right: 8px; }
+
+        .balon.pecah { animation: ledak 0.6s forwards; }
+        @keyframes ledak {
+            0% { transform: scale(1); opacity: 1; }
+            40% { transform: scale(1.6); opacity: 0.7; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+        .pecahan {
+            position: absolute; font-size: 30px;
+            animation: terbangPecah 1s forwards;
+            pointer-events: none; z-index: 15;
+        }
+        @keyframes terbangPecah {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            100% { transform: scale(1) rotate(270deg) translateY(-120px); opacity: 0; }
+        }
+
+        .isi-ucapan {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); text-align: center;
+            opacity: 0; z-index: 20; transition: opacity 1.5s ease-in;
+            width: 92%; max-width: 580px; pointer-events: none;
+        }
+        .isi-ucapan.muncul { opacity: 1; pointer-events: auto; }
+
+        .bingkai-gambar {
+            width: 240px; height: 240px; margin: 0 auto 25px;
+            border-radius: 50%; border: 6px solid #ff477e;
+            box-shadow: 0 0 30px rgba(255,71,126,0.5);
+            overflow: hidden; background: rgba(255,255,255,0.8);
+            animation: naikTurun 2.5s infinite ease-in-out;
+        }
+        .bingkai-gambar img { width: 100%; height: 100%; object-fit: cover; }
+        @keyframes naikTurun {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .teks-ucapan {
+            font-size: 2.2rem; font-weight: bold; color: #d32f2f;
+            text-shadow: 3px 3px 0 #fff, -1px -1px 0 #fff; margin-bottom: 20px;
+        }
+        .teks-pesan {
+            font-size: 1.2rem; color: #2e7d32;
+            background: rgba(255,255,255,0.9);
+            padding: 25px 20px; border-radius: 25px;
+            line-height: 1.8; display: inline-block;
+        }
+
+        .hilang { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="matahari"></div>
+<div class="awan" style="width:180px; height:70px; top:80px; left:10%;"></div>
+<div class="awan" style="width:220px; height:80px; top:150px; left:40%; animation-delay:6s;"></div>
+<div class="awan" style="width:150px; height:60px; top:60px; left:70%; animation-delay:12s;"></div>
+<div class="rumput"></div>
+
+<div class="bunga" style="bottom:100px; left:15%;">🌻</div>
+<div class="bunga" style="bottom:80px; left:30%; animation-delay:0.5s;">🌷</div>
+<div class="bunga" style="bottom:110px; left:55%; animation-delay:1s;">🌸</div>
+<div class="bunga" style="bottom:90px; left:75%; animation-delay:1.5s;">🌼</div>
+<div class="bunga" style="bottom:105px; left:90%; animation-delay:2s;">🌹</div>
+
+<div class="kupu" style="top:200px; left:20%;">🦋</div>
+<div class="kupu" style="top:280px; left:60%; animation-delay:4s;">🦋</div>
+
+<div class="wadah-utama" id="wadahBalon">
+    <div class="balon" id="balon"><div class="tali-balon"></div></div>
+    <button class="tombol-paku" id="btnPaku" onclick="tekanPaku(event)">
+        <span>📌</span> Tekan Paku Ini!
+    </button>
+</div>
+
+<div class="isi-ucapan" id="ucapan">
+    <div class="bingkai-gambar">
+        <img src="IMG-20260616-WA0110.jpg" alt="Foto Najwa">
+    </div>
+    <h1 class="teks-ucapan">SELAMAT PAGI NAJWA CANTIK 👋❤🤍</h1>
+    <p class="teks-pesan">
+        Sebentar aku bikin ini setelah aku selesai ngerjain proyek di Discord hehehee<br><br>
+        Maaf yaa kalau tiba-tiba gini 😅<br>
+        Selamat pagi ya Princes ku, My Love ku 🥰<br><br>
+        Maaf kalau nanti bangunnya siang hihi, kemarin habis jaga princes, siapa tau kamu kebangun malam-malam 😊<br><br>
+        Lovee you so much Ayy 😝🎁
+    </p>
+</div>
+
+<audio id="musikLatar" preload="auto" loop>
+    <source src="c5394a6595ba9148f5501bbee8f33e6e.mp3" type="audio/mpeg">
+
+
+<script>
+let sudahPernah = false;
+
+function tekanPaku(event) {
+    if(sudahPernah) return;
+    sudahPernah = true;
+
+    const balon = document.getElementById('balon');
+    const btn = document.getElementById('btnPaku');
+    const wadah = document.getElementById('wadahBalon');
+    const ucapan = document.getElementById('ucapan');
+    const musik = document.getElementById('musikLatar');
+
+    const posTombol = btn.getBoundingClientRect();
+    const posBalon = balon.getBoundingClientRect();
+
+    const paku = document.createElement('div');
+    paku.classList.add('paku-terbang');
+    paku.textContent = '📌';
+    paku.style.left = posTombol.left + posTombol.width/2 - 20 + 'px';
+    paku.style.top = posTombol.top - 30 + 'px';
+    document.body.appendChild(paku);
+
+    setTimeout(() => {
+        paku.style.left = posBalon.left + posBalon.width/2 - 20 + 'px';
+        paku.style.top = posBalon.top + 50 + 'px';
+        paku.style.transform = 'rotate(360deg)';
+    }, 50);
+
+    setTimeout(() => {
+        paku.style.opacity = '0';
+        balon.classList.add('kena');
+
+        musik.currentTime = 0;
+        musik.play().catch(err => console.log('Musik siap diputar'));
+
+        for(let i=0; i<12; i++){
+            const pecah = document.createElement('div');
+            pecah.classList.add('pecahan');
+            pecah.textContent = ['💥','✨','💖','🌟','🎈'][Math.floor(Math.random()*5)];
+            pecah.style.left = posBalon.left + posBalon.width/2 + 'px';
+            pecah.style.top = posBalon.top + posBalon.height/2 + 'px';
+            document.body.appendChild(pecah);
+            setTimeout(() => pecah.remove(), 1000);
+        }
+
+        setTimeout(() => {
+            balon.classList.remove('kena');
+            balon.classList.add('pecah');
+            btn.classList.add('hilang');
+        }, 200);
+
+        setTimeout(() => {
+            wadah.classList.add('hilang');
+            ucapan.classList.add('muncul');
+            paku.remove();
+        }, 800);
+
+    }, 450);
+}
+</script>
+</body>
+</html>
